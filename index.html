@@ -14,7 +14,7 @@
   </head>
   <body>
     <header class="container">
-      <h3>Maandag 16:31 8 januari</h3>
+      <h3 id="header">Maandag 16:31 8 januari</h3>
       <div class="search-container">
         <input id="search" class="search glass" placeholder="Plaatsnaam..." />
         <ion-icon class="search-icon" name="search"></ion-icon>
@@ -23,32 +23,38 @@
     <main class="container">
       <section class="currentWeather card glass">
         <img
+          id="current-condition-icon"
           src="http://cdn.weatherapi.com/weather/128x128/day/323.png"
           alt="weather"
         />
-        <h2>Amsterdam</h2>
-        <h2>-4.0<sup>o</sup>C</h2>
+        <p id="current-condition-text"></p>
+        <h2><span id="current-temp-c">-4.0</span><sup>o</sup>C</h2>
+        <h2 id="location-name">Amsterdam</h2>
+        <p id="location-region">Amsterdam</p>
         <ul class="weather-details">
           <li>
             <p>Gevoelstemperatuur</p>
-            <p>-11.6<sup>o</sup>C</p>
+            <p><span id="current-feelslike-c">-11.6</span><sup>o</sup>C</p>
           </li>
           <li>
             <p>Windkracht</p>
-            <p>22 km<span>p/u</span></p>
+            <p><span id="current-wind-kph">22</span> km<sup>p/u</sup></p>
           </li>
           <li>
             <p>Windrichting</p>
-            <p><ion-icon name="send" class="north-west"></ion-icon>NEN</p>
+            <p>
+              <ion-icon id="current-wind-degree" name="send"></ion-icon
+              ><span id="current-wind-dir">NEN</span>
+            </p>
           </li>
           <li>
             <p>Luchtvochtigheid</p>
-            <p>86%</p>
+            <p><span id="current-humidity">86</span>%</p>
           </li>
         </ul>
       </section>
       <section class="forecastWeather card glass">
-        <ul class="forcast-weather-details">
+        <ul id="forecast" class="forcast-weather-details">
           <li>
             <p>Time</p>
             <p><sup>o</sup>C</p>

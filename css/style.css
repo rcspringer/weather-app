@@ -45,38 +45,7 @@ input {
 ion-icon {
   color: white;
   margin: 0 5px;
-}
-
-.north {
-  transform: rotate(-90deg);
-}
-
-.north-east {
-  transform: rotate(-45deg);
-}
-
-.east {
-  transform: rotate(0deg);
-}
-
-.south-east {
-  transform: rotate(45deg);
-}
-
-.south {
-  transform: rotate(90deg);
-}
-
-.south-west {
-  transform: rotate(135deg);
-}
-
-.west {
-  transform: rotate(180deg);
-}
-
-.north-west {
-  transform: rotate(225deg);
+  transition: transform ease 1.5s;
 }
 
 .container {
