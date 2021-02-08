@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="container">
+      <h3>Maandag 16:31 8 januari</h3>
+      <div class="search-container">
+        <input id="search" class="search glass" placeholder="Plaatsnaam..." />
+        <ion-icon class="search-icon" name="search"></ion-icon>
+      </div>
+    </header>
+    <main class="container">
+      <section class="currentWeather card glass">
+        <img
+          src="http://cdn.weatherapi.com/weather/128x128/day/323.png"
+          alt="weather"
+        />
+        <h2>Amsterdam</h2>
+        <h2>-4.0<sup>o</sup>C</h2>
+        <ul class="weather-details">
+          <li>
+            <p>Gevoelstemperatuur</p>
+            <p>-11.6<sup>o</sup>C</p>
+          </li>
+          <li>
+            <p>Windkracht</p>
+            <p>22 km<span>p/u</span></p>
+          </li>
+          <li>
+            <p>Windrichting</p>
+            <p><ion-icon name="send" class="north-west"></ion-icon>NEN</p>
+          </li>
+          <li>
+            <p>Luchtvochtigheid</p>
+            <p>86%</p>
+          </li>
+        </ul>
+      </section>
+      <section class="forecastWeather card glass">
+        <ul class="forcast-weather-details">
+          <li>
+            <p>Time</p>
+            <p><sup>o</sup>C</p>
+            <p>km<span>p/u</span></p>
+            <p>
+              <ion-icon name="send" class="north-west"></ion-icon>
+            </p>
+            <p>%</p>
+          </li>
+          <li>
+            <p>17:00</p>
+            <p>-4</p>
+            <p>21</p>
+            <p>NE</p>
+            <p>85</p>
+          </li>
+          <li>
+            <p>18:00</p>
+            <p>-5</p>
+            <p>22</p>
+            <p>NE</p>
+            <p>84</p>
+          </li>
+          <li>
+            <p>19:00</p>
+            <p>-4.6</p>
+            <p>21</p>
+            <p>NE</p>
+            <p>87</p>
+          </li>
+          <li>
+            <p>20:00</p>
+            <p>-4.5</p>
+            <p>22</p>
+            <p>NE</p>
+            <p>88</p>
+          </li>
+          <li>
+            <p>21:00</p>
+            <p>-6</p>
+            <p>22</p>
+            <p>E</p>
+            <p>85</p>
+          </li>
+          <li>
+            <p>21:00</p>
+            <p>-4</p>
+            <p>21</p>
+            <p>NE</p>
+            <p>85</p>
+          </li>
+          <li>
+            <p>22:00</p>
+            <p>-4</p>
+            <p>21</p>
+            <p>NE</p>
+            <p>85</p>
+          </li>
+          <li>
+            <p>23:00</p>
+            <p>-8</p>
+            <p>21</p>
+            <p>NE</p>
+            <p>85</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

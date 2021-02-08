@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/background.png");
+  background-size: cover;
+}
+body {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input {
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+
+.search-container {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.search-icon {
+  position: absolute;
+  right: 1em;
+  top: 0.5em;
+  font-size: 1.5em;
+}
+
+ion-icon {
+  color: white;
+  margin: 0 5px;
+}
+
+.north {
+  transform: rotate(-90deg);
+}
+
+.north-east {
+  transform: rotate(-45deg);
+}
+
+.east {
+  transform: rotate(0deg);
+}
+
+.south-east {
+  transform: rotate(45deg);
+}
+
+.south {
+  transform: rotate(90deg);
+}
+
+.south-west {
+  transform: rotate(135deg);
+}
+
+.west {
+  transform: rotate(180deg);
+}
+
+.north-west {
+  transform: rotate(225deg);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search {
+  padding: 0.8em 1.5em;
+  border-radius: 2em;
+  font-size: 1em;
+  margin: 0 1em;
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.431);
+}
+
+.card {
+  border-radius: 2em;
+  padding: 1em 2em;
+  margin: 1em;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(
+    315deg,
+    rgba(255, 255, 255, 0.34) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  backdrop-filter: blur(7px) brightness(0.9) opacity(1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.currentWeather {
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-details {
+  align-self: stretch;
+  list-style: none;
+}
+.weather-details li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forcast-weather-details {
+  align-self: stretch;
+  list-style: none;
+}
+.forcast-weather-details li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
+  justify-items: flex-end;
+}
+
+.forcast-weather-details li p:nth-child(1) {
+  justify-self: start;
+}
