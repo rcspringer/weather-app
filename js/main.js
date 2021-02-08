@@ -26,9 +26,6 @@ const loadWeather = async (location) => {
 };
 
 const parseData = (jsonData) => {
-  console.log(jsonData.location);
-  console.log(jsonData.current);
-  console.log(jsonData.forecast);
   document.getElementById("location-name").innerHTML = jsonData.location.name;
   document.getElementById("location-region").innerHTML =
     jsonData.location.region;
@@ -91,17 +88,11 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(loadPosition);
   } else {
-    console.log("Geolocation is not supported by this browser.");
+    console.error("Geolocation is not supported by this browser.");
   }
 }
 
 function loadPosition(position) {
-  console.log(
-    "Latitude: " +
-      position.coords.latitude +
-      "Longitude: " +
-      position.coords.longitude
-  );
   loadWeather(`${position.coords.latitude},${position.coords.longitude}`);
 }
 
