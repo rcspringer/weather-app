@@ -1,11 +1,7 @@
-let apiKey = "";
-let baseURL = "../json/";
-// let baseURL = "http://api.weatherapi.com/v1/";
-let timer;
+// First create a config.js file you can use the example_config.js
+import { apiKey, baseURL } from "./config.js";
 
-const getCurrentWeather = (location) => {
-  return fetch(`${baseURL}current.json?key=${apiKey}&q=${location}`);
-};
+let timer;
 
 const getForecastWeather = (location) => {
   return fetch(`${baseURL}forecast.json?key=${apiKey}&q=${location}&lang=nl`);
@@ -111,7 +107,7 @@ function loadPosition(position) {
 
 window.addEventListener("load", async () => {
   document.getElementById("search").addEventListener("keypress", onSearch);
-  timer = setInterval(() => {
+  setInterval(() => {
     updateTime();
   }, 1000);
   getLocation();
