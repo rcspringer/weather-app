@@ -27,6 +27,18 @@ input {
   color: white;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .search-container {
   position: relative;
   align-self: stretch;
@@ -48,24 +60,17 @@ ion-icon {
   transition: transform ease 1.5s;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-header {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .search {
   padding: 0.8em 1.5em;
   border-radius: 2em;
   font-size: 1em;
   margin: 0 1em;
 }
+
+.search:focus {
+  outline: none;
+}
+
 input::placeholder {
   color: rgba(255, 255, 255, 0.431);
 }
@@ -109,7 +114,7 @@ input::placeholder {
 }
 .forcast-weather-details li {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   justify-items: flex-end;
 }
 
