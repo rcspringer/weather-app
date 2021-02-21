@@ -3,8 +3,11 @@ import { apiKey, baseURL } from "./config.js";
 
 let timer;
 
-const getForecastWeather = (location) => {
-  return fetch(`${baseURL}forecast.json?key=${apiKey}&q=${location}&lang=nl`);
+const getForecastWeather = async (location) => {
+  const data = await fetch(
+    `${baseURL}forecast.json?key=${apiKey}&q=${location}&lang=nl`
+  );
+  return data.json();
 };
 
 const onSearch = (event) => {
@@ -16,8 +19,7 @@ const onSearch = (event) => {
 const loadWeather = async (location) => {
   try {
     // Code will continue if the call returns as a 200 OK
-    const data = await getForecastWeather(location);
-    const jsonData = await data.json();
+    const jsonData = await getForecastWeather(location);
     parseData(jsonData);
   } catch (e) {
     // Did not return a 200 OK
@@ -56,27 +58,65 @@ const parseData = (jsonData) => {
     if (currentHour < current.hour.length) {
       // Resetting the forecast element
       const forecastEl = document.getElementById("forecast");
-      forecastEl.innerHTML = `<li>
-            <p>Time</p>
-            <p><sup>o</sup>C</p>
-            <p>km<span>p/u</span></p>
-            <p>
-                <ion-icon name="send" class="north-west"></ion-icon>
-            </p>
-            <p>%</p>
-        </li>`;
+      forecastEl.innerHTML = "";
+      forecastEl.append(getForecastHeader());
       for (let i = currentHour; i < current.hour.length; i += 1) {
         const data = current.hour[i];
         const listItem = document.createElement("li");
-        listItem.innerHTML = `<p>${new Date(data.time).getHours()}:00</p>
-          <p>${data.temp_c}</p>
-          <p>${data.wind_kph}</p>
-          <p>${data.wind_dir}</p>
-          <p>${data.humidity}</p>`;
+        listItem.append(
+          createParagraph(`${new Date(data.time).getHours()}:00`)
+        );
+        listItem.append(createParagraph(`${data.temp_c}`));
+        listItem.append(createParagraph(`${data.wind_kph}`));
+        listItem.append(createParagraph(`${data.wind_dir}`));
+        listItem.append(createParagraph(`${data.humidity}`));
         forecastEl.append(listItem);
       }
     }
   }
+};
+
+const getForecastHeader = () => {
+  const listItem = document.createElement("li");
+  listItem.append(createParagraph(`Time`));
+  listItem.append(getCtemp());
+  listItem.append(getKMpu());
+  listItem.append(createParagraph(getIcon("send")));
+  listItem.append(createParagraph(`%`));
+  return listItem;
+};
+
+const getCtemp = () => {
+  const sup = document.createElement("sup");
+  sup.innerText = "o";
+  const p = createParagraph("C");
+  p.prepend(sup);
+  return p;
+};
+
+const getKMpu = () => {
+  const sup = document.createElement("sup");
+  sup.innerText = "p/u";
+  const p = createParagraph("km");
+  p.append(sup);
+  return p;
+};
+
+const getIcon = (iconType) => {
+  const icon = document.createElement("ion-icon");
+  icon.name = iconType;
+  return icon;
+};
+
+const createParagraph = (text) => {
+  const p = document.createElement("p");
+  if (typeof text === "string") {
+    p.innerText = text;
+  } else if (typeof text === "object") {
+    p.append(text);
+  }
+  console.log(typeof text);
+  return p;
 };
 
 const updateTime = () => {
@@ -84,17 +124,17 @@ const updateTime = () => {
   timeEl.innerText = new Date().toUTCString();
 };
 
-function getLocation() {
+const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(loadPosition);
   } else {
     console.error("Geolocation is not supported by this browser.");
   }
-}
+};
 
-function loadPosition(position) {
+const loadPosition = (position) => {
   loadWeather(`${position.coords.latitude},${position.coords.longitude}`);
-}
+};
 
 window.addEventListener("load", async () => {
   document.getElementById("search").addEventListener("keypress", onSearch);
